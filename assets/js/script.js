@@ -12,7 +12,7 @@ class Propietario {
         </li>
 
         <li class="list-group-item"> 
-        ${this.getTipo()}, mientras que el nombre de la mascota es: ${this.getNombreMascota()} y la enfermedad es: ${this.getEnfermedad()} 
+        ${this.tipo}, mientras que el nombre de la mascota es: ${this.nombreMascota} y la enfermedad es: ${this.enfermedad} 
         </li>
         `;
     }
@@ -21,13 +21,13 @@ class Propietario {
 class Animal extends Propietario {
     constructor(nombre, direccion, telefono, tipo) {
         super(nombre, direccion, telefono);
-        this.tipo = tipo;
+        this._tipo = tipo;
     }
 
 
 
-    getTipo() {
-        return `El tipo de animal es un: ${this.tipo}`;
+    get tipo() {
+        return `El tipo de animal es un: ${this._tipo}`;
     }
 }
 
@@ -42,19 +42,19 @@ class Mascota extends Animal {
         return super.datosPropietario();
     }
 
-    getNombreMascota() {
+    get nombreMascota() {
         return this._nombreMascota;
     }
 
-    setNombreMascota(nuevoNombre) {
+    set nombreMascota(nuevoNombre) {
         this._nombreMascota = nuevoNombre;
     }
 
-    getEnfermedad() {
+    get enfermedad() {
         return this._enfermedad;
     }
 
-    setEnfermedad(nuevaEnfermedad) {
+    set enfermedad(nuevaEnfermedad) {
         this._enfermedad = nuevaEnfermedad;
     }
 
